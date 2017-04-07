@@ -5,10 +5,12 @@ Created on 2017年3月31日
 
 @author: Jin
 '''
+
+import GetToken
 import threading    #导入多线程库
 import TestCassRunner
 
-
+GetToken.test_get_token()#数据初始化，获取token
 def hthreads():
     threads = []    #创建线程数组
     h1 = threading.Thread(target=TestCassRunner.HRunner)   #定义线程
@@ -22,10 +24,10 @@ def hthreads():
             
     h.join()    #把主线程挂起，等待上面的线程跑完了再运行
     
-    AllTestReportData = TestCassRunner.hhlist
+    AllTestReportData = TestCassRunner.hhhlist
         
 #     print(AllTestReportData)
    
     return AllTestReportData
 
-# hthreads()#
+# hthreads()
