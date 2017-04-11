@@ -12,7 +12,7 @@ import xlrd
 # import xlwt
 from xlutils.copy import copy
 
-Testdata = xlrd.open_workbook('C:/Jin/workpase/ApiTest/src/testdata.xls')#打开测试数据
+Testdata = xlrd.open_workbook('../TestData/testdata.xls')#打开测试数据，路径需要自己配，相对路径似乎不行
 table = Testdata.sheets()[0]#选择sheet
 hurl = table.cell(7,1).value#读取URL
 def test_get_token():
@@ -45,7 +45,7 @@ def test_get_token():
             newWs = newWb.get_sheet(0)
             newWs.write(8, 1, token)
             print ("Token写入成功")
-            newWb.save('C:/Jin/workpase/ApiTest/src/testdata.xls')
+            newWb.save('../TestData/testdata.xls')#路径需要自己配，相对路径似乎不行
             print ("TestdDate保存成功")
             
         else:
