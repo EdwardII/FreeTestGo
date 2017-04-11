@@ -32,10 +32,7 @@ def ConnectData(host,sql):
     cursor.close()
     connect.close()
 #     return hrow
-host='192.168.0.1'
+host='192.168.1.111'
 sql = "SELECT id,user_name FROM t_admin  where user_name like 'jinte111st'"
 print(ConnectData(host,sql))
 # print("返回值是："+ConnectData(host,sql)[1])
-
-
-#
