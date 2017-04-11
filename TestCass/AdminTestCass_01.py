@@ -10,7 +10,7 @@ import PublicTools.TestRequest
 from PublicTools.TestRequest import TestPostRequest
 from PublicTools.TestRequest import TestGetRequest
 hhlist =PublicTools.TestRequest.hlist
-Testdata = xlrd.open_workbook('C:/Jin/workpase/ApiTest/src/AdminTest/TestData/TestData.xls')#读取测试数据
+Testdata = xlrd.open_workbook('../TestData/TestData.xls')#读取测试数据，路径自己定义
 table = Testdata.sheets()[0]#选择excle表中的sheet
 hurl = table.cell(7,1).value#从测试数据中读取url
 htoken = table.cell(8,1).value
