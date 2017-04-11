@@ -12,7 +12,7 @@ import TestAllRunner
 
 TestReport = TestAllRunner.hthreads()#调用测试结果
 
-hpassnum = 0
+hpassnum = 0#定义一个变量，用来计算测试通过的用例数量
 def get_format(wd, option={}):
     return wd.add_format(option)
 
@@ -26,12 +26,11 @@ def set_border_(wd, num=1):
 def _write_center(worksheet, cl, data, wd):
     return worksheet.write(cl, data, get_format_center(wd))
 now = time.strftime("%Y-%m-%d-%H-%M-%S-",time.localtime(time.time()))
-workbook = xlsxwriter.Workbook('C:/Jin/workpase/ApiTest/src/'+now+'report.xlsx')
+workbook = xlsxwriter.Workbook('../TestReport/'+now+'report.xlsx')#生成的报告的路径
 worksheet = workbook.add_worksheet("测试总况")
 worksheet2 = workbook.add_worksheet("测试详情")
 
 def init(worksheet):
-
     # 设置列行的宽高
     worksheet.set_column("A:A", 15)
     worksheet.set_column("B:B", 20)
@@ -45,9 +44,8 @@ def init(worksheet):
     worksheet.set_row(3, 30)
     worksheet.set_row(4, 30)
     worksheet.set_row(5, 30)
-
     # worksheet.set_row(0, 200)
-
+    
     define_format_H1 = get_format(workbook, {'bold': True, 'font_size': 18})
     define_format_H2 = get_format(workbook, {'bold': True, 'font_size': 14})
     define_format_H1.set_border(1)
@@ -61,15 +59,14 @@ def init(worksheet):
 
     worksheet.merge_range('A1:F1', '测试报告总概况', define_format_H1)
     worksheet.merge_range('A2:F2', '测试概括', define_format_H2)
-    worksheet.merge_range('A3:A6', '这里放图片', get_format_center(workbook))
+    worksheet.merge_range('A3:A6', 'LOGO', get_format_center(workbook))
 
     _write_center(worksheet, "B3", '项目名称', workbook)
     _write_center(worksheet, "B4", '接口版本', workbook)
     _write_center(worksheet, "B5", '脚本语言', workbook)
     _write_center(worksheet, "B6", '测试网络', workbook)
 
-
-    data = {"test_name": "重构系统", "test_version": "v2.0.8", "test_pl": "Java", "test_net": "xxx"}
+    data = {"test_name": "重构系统", "test_version": "v2.0.0", "test_pl": "Python3", "test_net": "NET"}
     _write_center(worksheet, "C3", data['test_name'], workbook)
     _write_center(worksheet, "C4", data['test_version'], workbook)
     _write_center(worksheet, "C5", data['test_pl'], workbook)
@@ -79,8 +76,6 @@ def init(worksheet):
     _write_center(worksheet, "D4", "通过总数", workbook)
     _write_center(worksheet, "D5", "失败总数", workbook)
     _write_center(worksheet, "D6", "测试日期", workbook)
-
-
 
     data1 = {"test_sum": len(TestReport), 
              "test_success": hpassnum, 
@@ -92,7 +87,6 @@ def init(worksheet):
     _write_center(worksheet, "E6", data1['test_date'], workbook)
 
     _write_center(worksheet, "F3", "得分", workbook)
-
 
     worksheet.merge_range('F4:F6', str((hpassnum/len(TestReport))*100)+'%', get_format_center(workbook))
 
@@ -162,6 +156,5 @@ def test_detail(worksheet):
         
 test_detail(worksheet2)
 init(worksheet)
-
 
 workbook.close()
