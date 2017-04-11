@@ -79,7 +79,7 @@ def TestGetRequest(hurl,hdata,headers,htestcassid,htestcassname,htesthope):
         if hstatus == htesthope:
             hhhdata = {"t_id": htestcassid,
                           "t_name": htestcassname,
-                          "t_method": "post", 
+                          "t_method": "get", 
                           "t_url": hurl, 
                           "t_param": "测试数据:"+str(hdata),
                           "t_hope": "code:"+str(htesthope), 
@@ -92,7 +92,7 @@ def TestGetRequest(hurl,hdata,headers,htestcassid,htestcassname,htesthope):
         else:            
             hhhdata = {"t_id": htestcassid,
                               "t_name": htestcassname,
-                              "t_method": "post", 
+                              "t_method": "get", 
                               "t_url": hurl, 
                               "t_param": "测试数据:"+str(hdata),
                               "t_hope": "code:"+str(htesthope), 
@@ -107,7 +107,7 @@ def TestGetRequest(hurl,hdata,headers,htestcassid,htestcassname,htesthope):
         if hcode == htesthope:  
             hhhdata = {"t_id": htestcassid,
                           "t_name": htestcassname,
-                          "t_method": "post", 
+                          "t_method": "get", 
                           "t_url": hurl, 
                           "t_param": "测试数据:"+str(hdata),
                           "t_hope": "code:"+str(htesthope), 
@@ -120,7 +120,7 @@ def TestGetRequest(hurl,hdata,headers,htestcassid,htestcassname,htesthope):
         else:
             hhhdata = {"t_id": htestcassid,
                           "t_name": htestcassname,
-                          "t_method": "post", 
+                          "t_method": "get", 
                           "t_url": hurl, 
                           "t_param": "测试数据:"+str(hdata),
                           "t_hope": "code:"+str(htesthope), 
