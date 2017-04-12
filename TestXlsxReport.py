@@ -8,9 +8,10 @@ Created on 2017年3月29日
 import xlsxwriter
 import time
 import TestAllRunner
+import PublicTools.TestRequest
 
-
-TestReport = TestAllRunner.hthreads()#调用测试结果
+TestAllRunner.hthreads()
+TestReport =PublicTools.TestRequest.hlist#调用测试结果
 
 hpassnum = 0#定义一个变量，用来计算测试通过的用例数量
 def get_format(wd, option={}):
