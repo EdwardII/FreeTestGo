@@ -13,7 +13,6 @@ import TestCass.TestCassPermission_02
 import TestCass.TestCassAdminrole_03
 
 
-hhhlist = []
 def Test_01AdminCass():
     print('开始测试')
     now = time.strftime("%Y-%m-%d-%H-%M-%S",time.localtime(time.time()))
@@ -24,10 +23,8 @@ def Test_01AdminCass():
     TestCass.TestCassAdmin_01.test_4list_admin()
     TestCass.TestCassAdmin_01.test_5exists_admin()
     TestCass.TestCassAdmin_01.test_6find_admin()
-    TestReportData = TestCass.TestCassAdmin_01.hhlist#返回测试结果。
-#     print(TestReportData)
     print('结束测试')
-    hhhlist.extend(TestReportData) 
+
     
 def Test_02PermissionCass():
     print("开始测试")
@@ -37,9 +34,7 @@ def Test_02PermissionCass():
     TestCass.TestCassPermission_02.test_2del_permission()
     TestCass.TestCassPermission_02.test_3find_permission()
     TestCass.TestCassPermission_02.test_4exists_permission()
-    TestReportData = TestCass.TestCassPermission_02.hhlist
     print('结束测试')
-    hhhlist.extend(TestReportData) 
 
 def Test_03AdminroleCass():
     print("开始测试")
@@ -47,12 +42,11 @@ def Test_03AdminroleCass():
     print(now)
     TestCass.TestCassAdminrole_03.test_1relate_permissions()
     TestCass.TestCassAdminrole_03.test_2get_permissions()
-    TestReportData = TestCass.TestCassAdminrole_03.hhlist
     print("结束测试")  
-    hhhlist.extend(TestReportData)  
+
 
 
  
-# Test_01AdminCass()    
+# Test_01AdminCass()
 # Test_02PermissionCass()
 # Test_03AdminroleCass()
