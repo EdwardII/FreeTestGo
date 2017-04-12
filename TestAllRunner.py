@@ -23,7 +23,5 @@ def hthreads():
     for h in threads:   #读取数组里的所有线程，并同时执行
         h.start()       #开始线程活动            
         h.join()    #把主线程挂起，等待上面的线程跑完了再运行  
-         
-    AllTestReportData = TestAllCass.hhhlist
-    return AllTestReportData
+
 #hthreads()
